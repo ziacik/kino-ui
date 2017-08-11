@@ -5,11 +5,20 @@
 	</md-sidenav>
 
 	<md-toolbar color="primary">
-		<button class="app-icon-button" (click)="sidenav.toggle()">
-			<i class="material-icons app-toolbar-menu">menu</i>
-		</button> Torrent Lama
+		<button md-button>
+			<md-icon>menu</md-icon>
+		</button>
+
+		<md-chip-list>
+			<md-chip>
+				Torrent Lama
+			</md-chip>
+		</md-chip-list>
 
 		<span class="app-toolbar-filler"></span>
+		<app-search-bar></app-search-bar>
+		<span class="app-toolbar-filler"></span>
+
 		<button md-button>HELP</button>
 	</md-toolbar>
 
@@ -26,6 +35,6 @@
 
 </md-sidenav-container>
 
-<span class="app-action" [class.m2app-dark]="isDarkTheme">
+<span class="app-action">
 	<button md-fab><md-icon>check circle</md-icon></button>
 </span>
