@@ -9,7 +9,7 @@ import { SearchModule } from './search/search.module';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 
 const appRoutes: Routes = [
-	{ path: 'search', component: SearchResultsComponent }
+	{ path: 'search/:query', component: SearchResultsComponent }
 ];
 
 @NgModule({

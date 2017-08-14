@@ -1,4 +1,4 @@
 <md-input-container>
-	<input mdInput placeholder="Search" type="search" />
+	<input mdInput placeholder="Search" type="search" #search (keyup.enter)="onSearch(search.value)" />
 	<md-icon mdPrefix>search</md-icon>
 </md-input-container>
