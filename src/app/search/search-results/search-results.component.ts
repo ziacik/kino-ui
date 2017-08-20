@@ -18,7 +18,10 @@ export class SearchResultsComponent implements OnInit {
 	ngOnInit() {
 		this.sub = this.route.params
 		.flatMap(params => this.searchService.search(params['query']))
-		.subscribe(results => this.results = results);
+		.subscribe(results => {
+			console.log(results);
+
+			this.results = results});
 	}
 
 }

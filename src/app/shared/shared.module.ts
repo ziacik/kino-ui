@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
 	imports: [
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		CommonModule,
 		BrowserModule,
 		MaterialModule,
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		FlexLayoutModule
 	],
 	declarations: []
 })

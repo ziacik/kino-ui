@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Resource } from '../../shared/resource';
-import { TvdbService } from './tvdb.service';
 
 @Injectable()
 export class SearchService {
 
-	constructor(private tvdbService: TvdbService) {
+	constructor(private http: HttpClient) {
 	}
 
 	search(query: string): Observable<Resource[]> {
-		return this.tvdbService.searchShow(query);
+		return this.http.get<Resource[]>('http://localhost:3000/api/resources/discovery', {
+			params: new HttpParams().set('query', query)
+		});
 	}
 }
