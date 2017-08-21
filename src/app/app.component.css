@@ -2,6 +2,10 @@ md-sidenav-container.m2app-dark {
 	background: black;
 }
 
+.logo {
+	height: 20px;
+}
+
 .app-content {
 	padding: 20px;
 }

@@ -1,16 +1,19 @@
-<div class='md-padding' fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-around center" fxLayoutWrap>
-	<md-card class="card" *ngFor="let result of results" fxFlex="25%">
-		<img md-card-image src="{{ result.banner ? 'https://thetvdb.com/banners/' + result.banner : 'https://material.angular.io/assets/img/examples/shiba2.jpg'}}">
-		<md-card-title>{{ result.title }}</md-card-title>
-		<md-card-subtitle>{{ result.type }}</md-card-subtitle>
-		<md-card-content>
-			<p>
-				{{ result.overview }}
-			</p>
-		</md-card-content>
-		<md-card-actions>
-			<button md-button>LIKE</button>
-			<button md-button>SHARE</button>
-		</md-card-actions>
-	</md-card>
-</div>
+<masonry>
+	<masonry-brick *ngFor="let result of results" class='brick'>
+		<md-card class="card">
+			<img *ngIf="result.banner" class="banner" md-card-image src="{{ 'https://thetvdb.com/banners/' + result.banner }}" />
+			<div *ngIf="!result.banner" md-card-image class="fallback banner"></div>
+			<md-card-title>{{ result.title }}</md-card-title>
+			<md-card-subtitle>{{ result.type }}</md-card-subtitle>
+			<md-card-content>
+				<p>
+					{{ result.overview }}
+				</p>
+			</md-card-content>
+			<md-card-actions>
+				<button md-button>LIKE</button>
+				<button md-button>SHARE</button>
+			</md-card-actions>
+		</md-card>
+	</masonry-brick>
+</masonry>

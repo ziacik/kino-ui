@@ -3,7 +3,6 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchService } from './shared/search.service';
-import { TvdbService } from './shared/tvdb.service';
 
 @NgModule({
 	imports: [
@@ -17,8 +16,7 @@ import { TvdbService } from './shared/tvdb.service';
 		SearchBarComponent
 	],
 	providers: [
-		SearchService,
-		TvdbService
+		SearchService
 	]
 })
 export class SearchModule { }
