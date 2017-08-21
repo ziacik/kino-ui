@@ -1,3 +1,11 @@
+.container {
+    width: 100%;
+}
+
+.masonry {
+    margin: 0 auto;
+}
+
 .brick {
     width: 20em;
     margin: 1em;
