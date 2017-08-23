@@ -1,0 +1,14 @@
+<md-card class='card'>
+    <img *ngIf='item.banner' class='banner' md-card-image src='{{ "https://thetvdb.com/banners/" + item.banner }}' />
+    <div *ngIf='!item.banner' md-card-image class='fallback banner'></div>
+    <md-card-title>{{ item.title }}</md-card-title>
+    <md-card-subtitle>{{ item.type }}</md-card-subtitle>
+    <md-card-content>
+        <p>
+            {{ item.overview }}
+        </p>
+    </md-card-content>
+    <md-card-actions>
+        <button md-button>ADD</button>
+    </md-card-actions>
+</md-card>

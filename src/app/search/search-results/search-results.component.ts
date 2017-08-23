@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { Resource } from '../../shared/resource';
 import { SearchService } from '../shared/search.service';
@@ -10,14 +11,12 @@ import { SearchService } from '../shared/search.service';
 	styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
-	private sub: any;
-	results: Resource[] = [];
+	results: Observable<Resource[]>;
 
 	constructor(private route: ActivatedRoute, private searchService: SearchService) { }
 
 	ngOnInit() {
-		this.sub = this.route.params
-		.flatMap(params => this.searchService.search(params['query']))
-		.subscribe(results => this.results = results);
+		this.results = this.route.params
+			.flatMap(params => this.searchService.search(params['query']));
 	}
 }

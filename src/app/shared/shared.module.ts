@@ -6,6 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MasonryModule } from 'angular2-masonry';
+import { ItemsGridComponent } from './items-grid/items-grid.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 @NgModule({
 	imports: [
@@ -20,8 +22,13 @@ import { MasonryModule } from 'angular2-masonry';
 		BrowserModule,
 		MaterialModule,
 		BrowserAnimationsModule,
-		MasonryModule
+		MasonryModule,
+		ItemsGridComponent,
+		ItemCardComponent
 	],
-	declarations: []
+	declarations: [
+		ItemsGridComponent,
+		ItemCardComponent
+	]
 })
 export class SharedModule { }
