@@ -17,6 +17,8 @@ export class SearchResultsComponent implements OnInit {
 
 	ngOnInit() {
 		this.results = this.route.params
-			.flatMap(params => this.searchService.search(params['query']));
+			.debounceTime(1000)
+			.distinctUntilChanged()
+			.switchMap(params => this.searchService.search(params['query']));
 	}
 }
