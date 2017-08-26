@@ -4,12 +4,12 @@ import { By } from '@angular/platform-browser';
 import { SharedModule } from '../shared.module';
 import { ItemsGridComponent } from './items-grid.component';
 import { ItemCardComponent } from '../item-card/item-card.component';
-import { Resource } from '../resource';
+import { Item } from '../item';
 
 describe('ItemsGridComponent', () => {
 	let component: ItemsGridComponent;
 	let fixture: ComponentFixture<ItemsGridComponent>;
-    let items: Resource[];
+    let items: Item[];
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
@@ -18,7 +18,7 @@ describe('ItemsGridComponent', () => {
 	}));
 
 	beforeEach(() => {
-        items = [{} as Resource, {} as Resource];
+        items = [{} as Item, {} as Item];
 		fixture = TestBed.createComponent(ItemsGridComponent);
 		component = fixture.componentInstance;
         component.items = items;

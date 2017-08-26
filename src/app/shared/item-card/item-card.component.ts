@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Resource } from '../resource';
+import { Item } from '../item';
 
 @Component({
 	selector: 'app-item-card',
@@ -7,7 +7,7 @@ import { Resource } from '../resource';
 	styleUrls: ['./item-card.component.css']
 })
 export class ItemCardComponent implements OnInit {
-    @Input() item: Resource;
+    @Input() item: Item;
 
 	constructor() { }
 

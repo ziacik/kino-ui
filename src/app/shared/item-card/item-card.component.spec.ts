@@ -2,24 +2,24 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SharedModule } from '../shared.module';
 import { ItemCardComponent } from './item-card.component';
-import { Resource } from '../resource';
+import { Item } from '../item';
 
 describe('ItemCardComponent', () => {
 	let component: ItemCardComponent;
 	let fixture: ComponentFixture<ItemCardComponent>;
-    let item: Resource;
+	let item: Item;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-            imports: [SharedModule]
+			imports: [SharedModule]
 		}).compileComponents();
 	}));
 
 	beforeEach(() => {
-        item = { title: 'Some Title' } as Resource;
+		item = { name: 'Some Title' } as Item;
 		fixture = TestBed.createComponent(ItemCardComponent);
 		component = fixture.componentInstance;
-        component.item = item;
+		component.item = item;
 		fixture.detectChanges();
 	});
 

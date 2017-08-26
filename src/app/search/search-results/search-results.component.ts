@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Resource } from '../../shared/resource';
+import { Item } from '../../shared/item';
 import { SearchService } from '../shared/search.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { SearchService } from '../shared/search.service';
 	styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
-	results: Observable<Resource[]>;
+	results: Observable<Item[]>;
 
 	constructor(private route: ActivatedRoute, private searchService: SearchService) { }
 

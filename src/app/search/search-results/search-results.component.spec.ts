@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { SharedModule } from '../../shared/shared.module';
 import { SearchResultsComponent } from './search-results.component';
 import { ItemsGridComponent } from '../../shared/items-grid/items-grid.component';
-import { Resource } from '../../shared/resource';
+import { Item } from '../../shared/item';
 
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../shared/search.service';
@@ -14,14 +14,14 @@ describe('SearchResultsComponent', () => {
 	let component: SearchResultsComponent;
 	let fixture: ComponentFixture<SearchResultsComponent>;
 	let searchService: SearchService;
-	let results: Resource[];
+	let results: Item[];
 
 	beforeEach(async(() => {
 		let activateRoute = {
 			params: Observable.of({ query: 'some query'})
 		};
 
-		results = [{ title: 'one'} as Resource];
+		results = [{ name: 'one'} as Item];
 
 		searchService = jasmine.createSpyObj('SearchService', ['search']);
 		(searchService.search as jasmine.Spy).and.returnValue(Observable.of(results));

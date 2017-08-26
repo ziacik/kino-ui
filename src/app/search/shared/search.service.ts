@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Resource } from '../../shared/resource';
+import { Item } from '../../shared/item';
 
 @Injectable()
 export class SearchService {
@@ -9,8 +9,8 @@ export class SearchService {
 	constructor(private http: HttpClient) {
 	}
 
-	search(query: string): Observable<Resource[]> {
-		return this.http.get<Resource[]>('http://localhost:3000/api/resources/discovery', {
+	search(query: string): Observable<Item[]> {
+		return this.http.get<Item[]>('http://localhost:3000/api/items/discovery', {
 			params: new HttpParams().set('query', query)
 		});
 	}

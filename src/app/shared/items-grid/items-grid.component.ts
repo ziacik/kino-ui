@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Resource } from '../resource';
+import { Item } from '../item';
 
 @Component({
 	selector: 'app-items-grid',
@@ -7,7 +7,7 @@ import { Resource } from '../resource';
 	styleUrls: ['./items-grid.component.css']
 })
 export class ItemsGridComponent implements OnInit {
-	@Input() items: Resource[];
+	@Input() items: Item[];
 
 	constructor() { }
 
