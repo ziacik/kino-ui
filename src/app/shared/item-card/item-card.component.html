@@ -1,8 +1,8 @@
 <md-card class='card'>
-	<img *ngIf='item.banner' class='banner' md-card-image src='{{ "https://thetvdb.com/banners/" + item.banner }}' />
-	<div *ngIf='!item.banner' md-card-image class='fallback banner'></div>
 	<md-card-title>{{ item.name }}</md-card-title>
 	<md-card-subtitle>{{ item.type }}</md-card-subtitle>
+	<img *ngIf='item.posterUrl' md-card-image src='{{ item.posterUrl }}' />
+	<div *ngIf='!item.posterUrl' md-card-image class='fallback'></div>
 	<md-card-content>
 		<p>
 			{{ item.overview }}

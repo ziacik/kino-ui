@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from '../../shared/item';
+import { DiscoveryService } from './discovery.service';
 
 @Injectable()
 export class SearchService {
 
-	constructor(private http: HttpClient) {
+	constructor( @Inject("DiscoveryServices") private services: DiscoveryService[]) {
 	}
 
-	search(query: string): Observable<Item[]> {
-		return this.http.get<Item[]>('http://localhost:3000/api/items/discovery', {
-			params: new HttpParams().set('query', query)
-		});
+	search(name: string): Observable<Item[]> {
+		return Observable.forkJoin(this.services.map(service => service.search(name)))
+			.map(items => [].concat.apply([], items));
 	}
 }

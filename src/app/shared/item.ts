@@ -8,6 +8,7 @@ export class Item {
 	externalIds: ExternalIdMap;
 
 	constructor(data: any) {
+		this.externalIds = new ExternalIdMap();
 		Object.assign(this, data);
 	}
 }

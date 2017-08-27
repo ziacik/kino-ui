@@ -1,40 +1,36 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 import { Observable } from 'rxjs';
 
+import { DiscoveryService } from './discovery.service';
 import { SearchService } from './search.service';
 import { Item } from '../../shared/item';
 
-import { HttpClient } from '@angular/common/http';
-
 describe('SearchService', () => {
 	let service: SearchService;
-	let items: Item[];
-	let http: HttpClient;
-	let get: jasmine.Spy;
+	let provider: DiscoveryService;
+	let anotherProvider: DiscoveryService;
 	let item: Item;
+	let anotherItem: Item;
 
 	beforeEach(() => {
-		item = {} as Item;
-		http = jasmine.createSpyObj('Http', ['get']);
-		get = http.get as jasmine.Spy;
-		get.and.returnValue(Observable.of([item]));
+		item = { name: 'one' } as Item;
+		anotherItem = { name: 'two' } as Item;
+		provider = {
+			search: jasmine.createSpy('search').and.returnValue(Observable.of([item]))
+		} as DiscoveryService;
+		anotherProvider = {
+			search: jasmine.createSpy('search').and.returnValue(Observable.of([anotherItem]))
+		} as DiscoveryService;
 
-		TestBed.configureTestingModule({
-			providers: [
-				SearchService,
-				{ provide: HttpClient, useValue: http }
-			]
-		});
-		service = TestBed.get(SearchService);
+		service = new SearchService([provider, anotherProvider]);
 	});
 
-	it('search calls discovery api and returns items', fakeAsync(() => {
+	it('search passes the query to all providers and returns merged result', fakeAsync(() => {
 		let results: Item[];
-		service.search('some thing').subscribe(it => results = it);
+		service.search('something').subscribe(it => results = it);
 		tick();
-		expect(get).toHaveBeenCalled();
-		expect(get.calls.mostRecent().args[0]).toEqual('http://localhost:3000/api/items/discovery');
-		expect(get.calls.mostRecent().args[1].params.toString()).toEqual('query=some%20thing');
-		expect(results).toEqual([item]);
+		expect(provider.search).toHaveBeenCalledWith('something');
+		expect(anotherProvider.search).toHaveBeenCalledWith('something');
+		expect(results).toEqual([item, anotherItem]);
 	}));
 });
