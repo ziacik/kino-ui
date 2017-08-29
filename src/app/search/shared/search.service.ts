@@ -7,7 +7,7 @@ import { DiscoveryService } from './discovery.service';
 @Injectable()
 export class SearchService {
 
-	constructor( @Inject("DiscoveryServices") private services: DiscoveryService[]) {
+	constructor( @Inject('DiscoveryServices') private services: DiscoveryService[]) {
 	}
 
 	search(name: string): Observable<Item[]> {

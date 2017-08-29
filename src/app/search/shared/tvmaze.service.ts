@@ -12,7 +12,7 @@ export class TvmazeService implements DiscoveryService {
 	}
 
 	search(name: string): Observable<Item[]> {
-		let params: HttpParams = new HttpParams()
+		const params: HttpParams = new HttpParams()
 			.set('q', name);
 		return this.http.get('http://api.tvmaze.com/search/shows', {
 			params: params
@@ -21,7 +21,7 @@ export class TvmazeService implements DiscoveryService {
 
 	private dataToItems(data: any): Item[] {
 		return data.map(it => {
-			let item = new Item({
+			const item = new Item({
 				name: it.show.name,
 				type: 'show',
 				year: it.show.premiered,
