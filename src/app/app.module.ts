@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module'
 import { SearchModule } from './search/search.module';
+import { TorrentModule } from './torrent/torrent.module';
 
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
 	imports: [
 		SharedModule,
 		SearchModule,
+		TorrentModule,
 		RouterModule.forRoot(appRoutes),
 		HttpClientModule
 	],

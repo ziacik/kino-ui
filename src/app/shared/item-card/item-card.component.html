@@ -1,6 +1,6 @@
 <md-card class='card'>
 	<md-card-title>{{ item.name }}</md-card-title>
-	<md-card-subtitle>{{ item.type }}</md-card-subtitle>
+	<md-card-subtitle>{{ item.type }}<div *ngIf='torrent'>{{ torrent.link }}</div></md-card-subtitle>
 	<img *ngIf='item.posterUrl' md-card-image src='{{ item.posterUrl }}' />
 	<div *ngIf='!item.posterUrl' md-card-image class='fallback'></div>
 	<md-card-content>
