@@ -17,7 +17,7 @@ describe('SearchResultsComponent', () => {
 	let results: Item[];
 
 	beforeEach(async(() => {
-		let activateRoute = {
+		const activateRoute = {
 			params: Observable.of({ query: 'some query'})
 		};
 
@@ -47,7 +47,7 @@ describe('SearchResultsComponent', () => {
 	});
 
 	it('binds search results to items grid', () => {
-		let grid: ItemsGridComponent = fixture.debugElement.query(By.directive(ItemsGridComponent)).componentInstance;
+		const grid: ItemsGridComponent = fixture.debugElement.query(By.directive(ItemsGridComponent)).componentInstance;
 		expect(grid.items).toBe(results);
 	});
 });

@@ -26,7 +26,7 @@ describe('ItemsGridComponent', () => {
 	});
 
 	it('displays items as cards', () => {
-		let cards: ItemCardComponent[] = fixture.debugElement.queryAll(By.directive(ItemCardComponent)).map(it => it.componentInstance);
+		const cards: ItemCardComponent[] = fixture.debugElement.queryAll(By.directive(ItemCardComponent)).map(it => it.componentInstance);
 		expect(cards.length).toBe(items.length);
 		cards.forEach((card, i) => {
 			expect(card.item).toBe(items[i]);

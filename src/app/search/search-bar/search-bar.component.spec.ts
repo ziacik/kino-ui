@@ -32,7 +32,7 @@ describe('SearchBarComponent', () => {
 	});
 
 	it('navigates to search page on input', () => {
-		let input = fixture.debugElement.query(By.css('#search')).nativeElement;
+		const input = fixture.debugElement.query(By.css('#search')).nativeElement;
 		input.value = 'something';
 		input.dispatchEvent(new Event('input'));
 		expect(router.navigate).toHaveBeenCalledWith(['/search', 'something']);
