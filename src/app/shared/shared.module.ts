@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MasonryModule } from 'angular2-masonry';
 import { ItemsGridComponent } from './items-grid/items-grid.component';
 import { ItemCardComponent } from './item-card/item-card.component';
+import { ItemService } from './item.service';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	imports: [
@@ -19,6 +21,7 @@ import { ItemCardComponent } from './item-card/item-card.component';
 		BrowserModule,
 		MaterialModule,
 		BrowserAnimationsModule,
+		HttpClientModule,
 		MasonryModule
 	],
 	exports: [
@@ -33,6 +36,9 @@ import { ItemCardComponent } from './item-card/item-card.component';
 	declarations: [
 		ItemsGridComponent,
 		ItemCardComponent
+	],
+	providers: [
+		ItemService
 	]
 })
 export class SharedModule { }

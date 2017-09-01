@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -20,8 +19,7 @@ const appRoutes: Routes = [
 	imports: [
 		SharedModule,
 		SearchModule,
-		RouterModule.forRoot(appRoutes),
-		HttpClientModule
+		RouterModule.forRoot(appRoutes)
 	],
 	providers: [],
 	bootstrap: [AppComponent]
