@@ -3,7 +3,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchService } from './shared/search.service';
-import { TvmazeService } from './shared/tvmaze.service';
+import { TmdbService } from './shared/tmdb.service';
 
 @NgModule({
 	imports: [
@@ -18,7 +18,7 @@ import { TvmazeService } from './shared/tvmaze.service';
 	],
 	providers: [
 		SearchService,
-		{ provide: 'DiscoveryServices', useClass: TvmazeService, multi: true }
+		{ provide: 'DiscoveryServices', useClass: TmdbService, multi: true }
 	]
 })
 export class SearchModule { }
