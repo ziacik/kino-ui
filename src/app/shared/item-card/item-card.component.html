@@ -1,14 +1,14 @@
-<md-card class='card'>
-	<md-card-title>{{ item.name }}</md-card-title>
-	<md-card-subtitle>{{ item.type }}</md-card-subtitle>
-	<img *ngIf='item.posterUrl' md-card-image src='{{ item.posterUrl }}' />
-	<div *ngIf='!item.posterUrl' md-card-image class='fallback'></div>
-	<md-card-content>
+<mat-card class='card'>
+	<mat-card-title>{{ item.name }}</mat-card-title>
+	<mat-card-subtitle>{{ item.type }}</mat-card-subtitle>
+	<img *ngIf='item.posterUrl' mat-card-image src='{{ item.posterUrl }}' />
+	<div *ngIf='!item.posterUrl' mat-card-image class='fallback'></div>
+	<mat-card-content>
 		<p>
 			{{ item.overview }}
 		</p>
-	</md-card-content>
-	<md-card-actions>
-		<button md-button (click)="add()">ADD</button>
-	</md-card-actions>
-</md-card>
+	</mat-card-content>
+	<mat-card-actions>
+		<button mat-button (click)="add()">ADD</button>
+	</mat-card-actions>
+</mat-card>

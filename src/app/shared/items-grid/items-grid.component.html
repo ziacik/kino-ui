@@ -1,7 +1,3 @@
-<div class='container'>
-	<masonry [options]='{ fitWidth: true }' class='masonry'>
-		<masonry-brick *ngFor='let item of items' class='brick'>
-            <app-item-card [item]="item"></app-item-card>
-		</masonry-brick>
-	</masonry>
+<div class='container' fxLayout="row" fxLayout.xs="column">
+	<app-item-card fxFlex="25" *ngFor='let item of items' [item]="item"></app-item-card>
 </div>

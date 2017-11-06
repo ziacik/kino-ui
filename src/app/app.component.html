@@ -1,12 +1,12 @@
-<md-sidenav-container class="m2app-dark">
+<mat-sidenav-container class="m2app-dark">
 
-	<md-sidenav #sidenav mode="side" class="app-sidenav">
+	<mat-sidenav #sidenav mode="side" class="app-sidenav">
 		Sidenav
-	</md-sidenav>
+	</mat-sidenav>
 
-	<md-toolbar color="primary">
-		<button md-button>
-			<md-icon>menu</md-icon>
+	<mat-toolbar color="primary">
+		<button mat-button>
+			<mat-icon>menu</mat-icon>
 		</button>
 
 		<img src="assets/logo.png" class="logo" />
@@ -15,15 +15,15 @@
 		<app-search-bar></app-search-bar>
 		<span class="app-toolbar-filler"></span>
 
-		<button md-button>HELP</button>
-	</md-toolbar>
+		<button mat-button>HELP</button>
+	</mat-toolbar>
 
 	<div class="app-content">
 		<router-outlet></router-outlet>
 	</div>
 
-</md-sidenav-container>
+</mat-sidenav-container>
 
 <span class="app-action">
-	<button md-fab><md-icon>check circle</md-icon></button>
+	<button mat-fab><mat-icon>check circle</mat-icon></button>
 </span>
