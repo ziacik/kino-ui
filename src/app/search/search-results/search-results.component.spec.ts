@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 import { SharedModule } from '../../shared/shared.module';
 import { SearchResultsComponent } from './search-results.component';
@@ -9,6 +9,7 @@ import { Item } from '../../shared/item';
 
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../shared/search.service';
+import { of } from 'rxjs/observable/of';
 
 describe('SearchResultsComponent', () => {
 	let component: SearchResultsComponent;
@@ -18,13 +19,13 @@ describe('SearchResultsComponent', () => {
 
 	beforeEach(async(() => {
 		const activateRoute = {
-			params: Observable.of({ query: 'some query'})
+			params: of({ query: 'some query'})
 		};
 
 		results = [{ name: 'one'} as Item];
 
 		searchService = jasmine.createSpyObj('SearchService', ['search']);
-		(searchService.search as jasmine.Spy).and.returnValue(Observable.of(results));
+		(searchService.search as jasmine.Spy).and.returnValue(of(results));
 
 		TestBed.configureTestingModule({
 			imports: [SharedModule],

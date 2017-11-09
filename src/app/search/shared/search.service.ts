@@ -1,8 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { Item } from '../../shared/item';
 import { DiscoveryService } from './discovery.service';
+import { forkJoin } from 'rxjs/observable/forkJoin';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
@@ -11,7 +13,8 @@ export class SearchService {
 	}
 
 	search(name: string): Observable<Item[]> {
-		return Observable.forkJoin(this.services.map(service => service.search(name)))
-			.map(items => [].concat.apply([], items));
+		return forkJoin(this.services.map(service => service.search(name))).pipe(
+			map(items => [].concat.apply([], items))
+		);
 	}
 }

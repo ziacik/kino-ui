@@ -4,6 +4,8 @@ import { HttpParams } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import { DiscoveryService } from './discovery.service';
 import { Item } from "../../shared/item";
+import { map } from 'rxjs/operators';
+import { zip } from 'rxjs/observable/zip';
 
 @Injectable()
 export class TmdbService implements DiscoveryService {
@@ -20,13 +22,15 @@ export class TmdbService implements DiscoveryService {
 			params: params
 		};
 
-		let showItems = this.http.get('http://api.themoviedb.org/3/search/tv', options)
-			.map(data => this.showDataToItems(data));
+		let showItems = this.http.get('http://api.themoviedb.org/3/search/tv', options).pipe(
+			map(data => this.showDataToItems(data))
+		);
 
-		let movieItems = this.http.get('http://api.themoviedb.org/3/search/movie', options)
-			.map(data => this.movieDataToItems(data));
+		let movieItems = this.http.get('http://api.themoviedb.org/3/search/movie', options).pipe(
+			map(data => this.movieDataToItems(data))
+		);
 
-		return Observable.zip(showItems, movieItems).map(results => results[0].concat(results[1]));
+		return zip(showItems, movieItems, (s, m) => s.concat(m));
 	}
 
 	private showDataToItems(data: any): Item[] {

@@ -5,6 +5,7 @@ import { Observable } from "rxjs/Observable";
 import { fakeAsync } from "@angular/core/testing";
 import { tick } from "@angular/core/testing";
 import { Item } from "../../shared/item";
+import { of } from 'rxjs/observable/of';
 
 describe('TmdbService', () => {
 	let httpClient: HttpClient;
@@ -27,7 +28,7 @@ describe('TmdbService', () => {
 	});
 
 	function showData() {
-		return Observable.of({
+		return of({
 			"page": 1,
 			"results": [
 				{
@@ -58,7 +59,7 @@ describe('TmdbService', () => {
 	}
 
 	function movieData() {
-		return Observable.of({
+		return of({
 			"page": 1,
 			"results": [
 				{
