@@ -1,9 +1,10 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 import { DiscoveryService } from './discovery.service';
 import { SearchService } from './search.service';
 import { Item } from '../../shared/item';
+import { of } from 'rxjs/observable/of';
 
 describe('SearchService', () => {
 	let service: SearchService;
@@ -16,10 +17,10 @@ describe('SearchService', () => {
 		item = { name: 'one' } as Item;
 		anotherItem = { name: 'two' } as Item;
 		provider = {
-			search: jasmine.createSpy('search').and.returnValue(Observable.of([item]))
+			search: jasmine.createSpy('search').and.returnValue(of([item]))
 		} as DiscoveryService;
 		anotherProvider = {
-			search: jasmine.createSpy('search').and.returnValue(Observable.of([anotherItem]))
+			search: jasmine.createSpy('search').and.returnValue(of([anotherItem]))
 		} as DiscoveryService;
 
 		service = new SearchService([provider, anotherProvider]);

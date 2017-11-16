@@ -1,8 +1,8 @@
 import { fakeAsync, tick } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ItemService } from './item.service';
 import { Item } from './item';
+import { of } from 'rxjs/observable/of';
 
 describe('ItemService', () => {
 	let service: ItemService;
@@ -14,7 +14,7 @@ describe('ItemService', () => {
 		item = { name: 'some item' } as Item;
 		http = jasmine.createSpyObj('HttpClient', ['post']) as HttpClient;
 		post = http.post as jasmine.Spy;
-		post.and.returnValue(Observable.of());
+		post.and.returnValue(of());
 		service = new ItemService(http);
 	});
 

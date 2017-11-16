@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { Item } from '../../shared/item';
 import { SearchService } from '../shared/search.service';
+import { Observable } from 'rxjs/Observable';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-search-results',
@@ -16,9 +17,10 @@ export class SearchResultsComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private searchService: SearchService) { }
 
 	ngOnInit() {
-		this.results = this.route.params
-			.debounceTime(1000)
-			.distinctUntilChanged()
-			.switchMap(params => this.searchService.search(params['query']));
+		this.results = this.route.params.pipe(
+			debounceTime(1000),
+			distinctUntilChanged(),
+			switchMap(params => this.searchService.search(params['query']))
+		);
 	}
 }

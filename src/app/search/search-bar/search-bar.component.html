@@ -1,4 +1,9 @@
-<md-input-container>
-	<input mdInput placeholder="Search" type="search" id="search" #search (input)="onSearch(search.value)" />
-	<md-icon mdPrefix>search</md-icon>
-</md-input-container>
+<mat-form-field floatPlaceholder="never">
+	<button mat-button matPrefix mat-icon-button aria-label="Search" disabled>
+		<mat-icon>search</mat-icon>
+	</button>
+	<input matInput placeholder="Search" id="search" #search (input)="onSearch(search.value)" />
+	<button *ngIf="search.value" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="search.value=''">
+		<mat-icon>close</mat-icon>
+	</button>
+</mat-form-field>

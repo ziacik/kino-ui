@@ -1,14 +1,9 @@
-<md-card class='card'>
-	<md-card-title>{{ item.name }}</md-card-title>
-	<md-card-subtitle>{{ item.type }}</md-card-subtitle>
-	<img *ngIf='item.posterUrl' md-card-image src='{{ item.posterUrl }}' />
-	<div *ngIf='!item.posterUrl' md-card-image class='fallback'></div>
-	<md-card-content>
-		<p>
-			{{ item.overview }}
-		</p>
-	</md-card-content>
-	<md-card-actions>
-		<button md-button (click)="add()">ADD</button>
-	</md-card-actions>
-</md-card>
+<mat-card class="card" style.backgroundImage="{{ 'url(' + item.posterUrl + ')' }}">
+	<div class="panel">
+		<mat-card-title>{{ item.name }}</mat-card-title>
+		<mat-card-subtitle>{{ item.type }}</mat-card-subtitle>
+		<button mat-mini-fab (click)="add()">
+			<mat-icon aria-label="Add">file_download</mat-icon>
+		</button>
+	</div>
+</mat-card>
