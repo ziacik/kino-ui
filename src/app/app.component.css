@@ -1,8 +1,21 @@
+mat-toolbar {
+	position: fixed;
+	top: 0;
+	z-index: 2;
+}
+
+app-search-bar {
+	width: 40em;
+	max-width: 100%;
+}
+
 .logo {
 	height: 40px;
+	margin-right: 4em;
 }
 
 .app-content {
+	margin-top: 70px;
 	padding: 20px 80px 20px 80px;
 }
 

@@ -1,22 +1,8 @@
-<mat-sidenav-container class="m2app-dark">
+<mat-toolbar color="basic" class="mat-elevation-z6">
+	<img src="assets/logo.png" class="logo" />
+	<app-search-bar></app-search-bar>
+</mat-toolbar>
 
-	<mat-sidenav #sidenav mode="side" class="app-sidenav">
-		Sidenav
-	</mat-sidenav>
-
-	<mat-toolbar color="primary">
-		<button mat-button>
-			<mat-icon>menu</mat-icon>
-		</button>
-
-		<img src="assets/logo.png" class="logo" />
-
-		<span class="app-toolbar-filler"></span>
-		<app-search-bar></app-search-bar>
-	</mat-toolbar>
-
-	<div class="app-content">
-		<router-outlet></router-outlet>
-	</div>
-
-</mat-sidenav-container>
+<div class="app-content">
+	<router-outlet></router-outlet>
+</div>
