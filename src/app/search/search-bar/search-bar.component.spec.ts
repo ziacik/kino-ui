@@ -34,11 +34,11 @@ describe('SearchBarComponent', () => {
 	});
 
 	function withRouterQueryParam(query: string) {
-		let snapshot = new ActivatedRouteSnapshot();
+		const snapshot = new ActivatedRouteSnapshot();
 		snapshot.params = {
 			query: query
 		};
-		let activationEnd  = new ActivationEnd(snapshot);
+		const activationEnd  = new ActivationEnd(snapshot);
 		routerEvents.next(activationEnd);
 	}
 

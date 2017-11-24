@@ -9,19 +9,19 @@ import { Item } from '../item';
 describe('ItemsGridComponent', () => {
 	let component: ItemsGridComponent;
 	let fixture: ComponentFixture<ItemsGridComponent>;
-    let items: Item[];
+	let items: Item[];
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [ SharedModule ]
+			imports: [SharedModule]
 		}).compileComponents();
 	}));
 
 	beforeEach(() => {
-        items = [{} as Item, {} as Item];
+		items = [{} as Item, {} as Item];
 		fixture = TestBed.createComponent(ItemsGridComponent);
 		component = fixture.componentInstance;
-        component.items = items;
+		component.items = items;
 		fixture.detectChanges();
 	});
 

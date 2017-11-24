@@ -23,7 +23,7 @@ describe('ItemService', () => {
 			service.add(item);
 			tick();
 			expect(post).toHaveBeenCalled();
-			let args = post.calls.mostRecent().args;
+			const args = post.calls.mostRecent().args;
 			expect(args[0]).toEqual('http://localhost:1337/items');
 			expect(args[1]).toEqual(item);
 		}));

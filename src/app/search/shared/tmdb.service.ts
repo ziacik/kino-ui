@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { DiscoveryService } from './discovery.service';
-import { Item } from "../../shared/item";
+import { Item } from '../../shared/item';
 import { map } from 'rxjs/operators';
 import { zip } from 'rxjs/observable/zip';
 
@@ -22,11 +22,11 @@ export class TmdbService implements DiscoveryService {
 			params: params
 		};
 
-		let showItems = this.http.get('http://api.themoviedb.org/3/search/tv', options).pipe(
+		const showItems = this.http.get('http://api.themoviedb.org/3/search/tv', options).pipe(
 			map(data => this.showDataToItems(data))
 		);
 
-		let movieItems = this.http.get('http://api.themoviedb.org/3/search/movie', options).pipe(
+		const movieItems = this.http.get('http://api.themoviedb.org/3/search/movie', options).pipe(
 			map(data => this.movieDataToItems(data))
 		);
 
@@ -44,7 +44,7 @@ export class TmdbService implements DiscoveryService {
 				rating: it.vote_average,
 				detailUrl: 'https://www.themoviedb.org/tv/' + it.id
 			});
-			item.externalIds.add('tmdb', it.id)
+			item.externalIds.add('tmdb', it.id);
 			return item;
 		});
 	}
@@ -60,7 +60,7 @@ export class TmdbService implements DiscoveryService {
 				rating: it.vote_average,
 				detailUrl: 'https://www.themoviedb.org/movie/' + it.id
 			});
-			item.externalIds.add('tmdb', it.id)
+			item.externalIds.add('tmdb', it.id);
 			return item;
 		});
 	}
