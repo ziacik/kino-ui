@@ -2,8 +2,8 @@
 	<button mat-button matPrefix mat-icon-button aria-label="Search" disabled>
 		<mat-icon>search</mat-icon>
 	</button>
-	<input matInput placeholder="Search" id="search" #search (input)="onSearch(search.value)" />
-	<button *ngIf="search.value" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="search.value=''">
+	<input matInput placeholder="Search" [formControl]="searchControl" />
+	<button *ngIf="searchControl.value" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clear()" class="clear">
 		<mat-icon>close</mat-icon>
 	</button>
 </mat-form-field>

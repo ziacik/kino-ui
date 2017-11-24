@@ -8,12 +8,14 @@ import { ItemService } from './item.service';
 import { HttpClientModule } from "@angular/common/http";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule, MatCardModule, MatButtonModule, MatInputModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		BrowserModule,
 		BrowserAnimationsModule,
+		ReactiveFormsModule,
 		HttpClientModule,
 		FlexLayoutModule,
 		MatSidenavModule,
@@ -27,6 +29,7 @@ import { MatSidenavModule, MatCardModule, MatButtonModule, MatInputModule, MatTo
 		CommonModule,
 		BrowserModule,
 		BrowserAnimationsModule,
+		ReactiveFormsModule,
 		FlexLayoutModule,
 		ItemsGridComponent,
 		ItemCardComponent,
