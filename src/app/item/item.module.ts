@@ -48,4 +48,4 @@ import { ReactiveFormsModule } from '@angular/forms';
 		ItemService
 	]
 })
-export class SharedModule { }
+export class ItemModule { }

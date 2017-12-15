@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 
-import { SharedModule } from '../../shared/shared.module';
+import { ItemModule } from '../../item/item.module';
 import { SearchResultsComponent } from './search-results.component';
-import { ItemsGridComponent } from '../../shared/items-grid/items-grid.component';
-import { Item } from '../../shared/item';
+import { ItemsGridComponent } from '../../item/items-grid/items-grid.component';
+import { Item } from '../../item/item';
 
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../shared/search.service';
@@ -28,7 +28,7 @@ describe('SearchResultsComponent', () => {
 		(searchService.search as jasmine.Spy).and.returnValue(of(results));
 
 		TestBed.configureTestingModule({
-			imports: [SharedModule],
+			imports: [ItemModule],
 			declarations: [SearchResultsComponent],
 			providers: [
 				{ provide: SearchService, useValue: searchService },

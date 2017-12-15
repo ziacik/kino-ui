@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { SharedModule } from '../shared.module';
+import { ItemModule } from '../item.module';
 import { ItemsGridComponent } from './items-grid.component';
 import { ItemCardComponent } from '../item-card/item-card.component';
 import { Item } from '../item';
@@ -13,7 +13,7 @@ describe('ItemsGridComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [SharedModule]
+			imports: [ItemModule]
 		}).compileComponents();
 	}));
 

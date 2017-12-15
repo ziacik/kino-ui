@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { SharedModule } from '../../shared/shared.module';
+import { ItemModule } from '../../item/item.module';
 import { SearchBarComponent } from './search-bar.component';
 
 import { Router, ActivatedRouteSnapshot, Params, ActivationEnd } from '@angular/router';
@@ -19,7 +19,7 @@ describe('SearchBarComponent', () => {
 		router = jasmine.createSpyObj('Router', ['navigate']);
 		(router as any).events = routerEvents;
 		TestBed.configureTestingModule({
-			imports: [SharedModule],
+			imports: [ItemModule],
 			declarations: [SearchBarComponent],
 			providers: [
 				{ provide: Router, useValue: router }

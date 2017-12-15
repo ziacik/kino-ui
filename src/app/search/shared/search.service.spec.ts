@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { DiscoveryService } from './discovery.service';
 import { SearchService } from './search.service';
-import { Item } from '../../shared/item';
+import { Item } from '../../item/item';
 import { of } from 'rxjs/observable/of';
 
 describe('SearchService', () => {

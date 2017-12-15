@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedModule } from '../shared.module';
+import { ItemModule } from '../item.module';
 import { ItemCardComponent } from './item-card.component';
 import { ItemService } from '../item.service';
 import { Item } from '../item';
@@ -14,7 +14,7 @@ describe('ItemCardComponent', () => {
 	beforeEach(async(() => {
 		itemService = jasmine.createSpyObj('ItemService', ['add']);
 		TestBed.configureTestingModule({
-			imports: [SharedModule],
+			imports: [ItemModule],
 			providers: [{ provide: ItemService, useValue: itemService }]
 		}).compileComponents();
 	}));

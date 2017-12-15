@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { DiscoveryService } from './discovery.service';
-import { Item } from '../../shared/item';
+import { Item } from '../../item/item';
 import { map } from 'rxjs/operators';
 import { zip } from 'rxjs/observable/zip';
 

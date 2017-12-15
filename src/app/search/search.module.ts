@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { ItemModule } from '../item/item.module';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchService } from './shared/search.service';
@@ -7,7 +7,7 @@ import { TmdbService } from './shared/tmdb.service';
 
 @NgModule({
 	imports: [
-		SharedModule
+		ItemModule
 	],
 	declarations: [
 		SearchBarComponent,

@@ -4,7 +4,7 @@ import { TmdbService } from './tmdb.service';
 import { Observable } from 'rxjs/Observable';
 import { fakeAsync } from '@angular/core/testing';
 import { tick } from '@angular/core/testing';
-import { Item } from '../../shared/item';
+import { Item } from '../../item/item';
 import { of } from 'rxjs/observable/of';
 
 describe('TmdbService', () => {

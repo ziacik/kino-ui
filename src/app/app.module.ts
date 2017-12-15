@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { SharedModule } from './shared/shared.module';
+import { ItemModule } from './item/item.module';
 import { SearchModule } from './search/search.module';
 
 import { SearchResultsComponent } from './search/search-results/search-results.component';
@@ -17,7 +17,7 @@ const appRoutes: Routes = [
 		AppComponent
 	],
 	imports: [
-		SharedModule,
+		ItemModule,
 		SearchModule,
 		RouterModule.forRoot(appRoutes)
 	],
