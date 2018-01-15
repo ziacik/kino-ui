@@ -8,6 +8,9 @@ export class ItemService {
 	constructor(private http: HttpClient) { }
 
 	add(item: Item) {
-		this.http.post('http://localhost:1337/items', item).subscribe();
+		this.http.post('http://localhost:1337/items', item).subscribe((result: any) => {
+			console.log(result);
+			item._id = result._id;
+		});
 	}
 }

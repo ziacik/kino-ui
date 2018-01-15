@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule, MatCardModule, MatButtonModule, MatInputModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ItemStateService } from './item-state.service';
+import { SOCKET_TOKEN } from '../socket.token';
+import * as io from 'socket.io-client';
 
 @NgModule({
 	imports: [
@@ -45,7 +48,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 		ItemCardComponent
 	],
 	providers: [
-		ItemService
+		ItemService,
+		ItemStateService,
+		{
+			provide: SOCKET_TOKEN,
+			useFactory: () => io('http://localhost:1337')
+		}
 	]
 })
 export class ItemModule { }

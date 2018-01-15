@@ -27,7 +27,6 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 		this.routerSubscription = this.router.events.subscribe(e => {
 			if (e instanceof ActivationEnd) {
 				const activationEnd: ActivationEnd = e as ActivationEnd;
-				console.log('activated', activationEnd.snapshot.params.query);
 				this.searchControl.setValue(activationEnd.snapshot.params.query);
 			}
 		});

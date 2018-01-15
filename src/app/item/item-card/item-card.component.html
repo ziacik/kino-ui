@@ -1,7 +1,7 @@
 <mat-card class="card" style.backgroundImage="{{ 'url(' + item.posterUrl + ')' }}">
 	<div class="panel">
 		<mat-card-title>{{ item.name }}</mat-card-title>
-		<mat-card-subtitle>{{ item.type }}</mat-card-subtitle>
+		<mat-card-subtitle>{{ item.type }} - {{ itemStateService.getStateFor(item) }}</mat-card-subtitle>
 		<button mat-mini-fab (click)="add()">
 			<mat-icon aria-label="Add">file_download</mat-icon>
 		</button>

@@ -1,6 +1,7 @@
 import { ExternalIdMap } from './external-id-map';
 
 export class Item {
+	_id: string;
 	name: string;
 	type: string;
 	year: number;
