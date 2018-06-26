@@ -1,9 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable,  forkJoin } from 'rxjs';
 import { Item } from '../../item/item';
 import { DiscoveryService } from './discovery.service';
-import { forkJoin } from 'rxjs/observable/forkJoin';
 import { map } from 'rxjs/operators';
 
 @Injectable()

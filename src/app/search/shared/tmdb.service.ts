@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable,  zip } from 'rxjs';
 import { DiscoveryService } from './discovery.service';
 import { Item } from '../../item/item';
 import { map } from 'rxjs/operators';
-import { zip } from 'rxjs/observable/zip';
 
 @Injectable()
 export class TmdbService implements DiscoveryService {
