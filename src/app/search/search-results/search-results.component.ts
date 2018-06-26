@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Item } from '../../item/item';
 import { SearchService } from '../shared/search.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
