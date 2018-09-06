@@ -9,11 +9,14 @@ import { Item } from '../../item/item';
 describe('TmdbService', () => {
 	let httpClient: HttpClient;
 	let service: TmdbService;
-	let get: jasmine.Spy;
+	let get: jest.Mock<{}>;
 
 	beforeEach(() => {
-		httpClient = jasmine.createSpyObj('HttpClient', ['get']);
-		get = httpClient.get as jasmine.Spy;
+		get = jest.fn()
+			.mockReturnValueOnce(showData())
+			.mockReturnValueOnce(movieData());
+
+		httpClient = { get } as any;
 
 		TestBed.configureTestingModule({
 			providers: [
@@ -23,7 +26,6 @@ describe('TmdbService', () => {
 		});
 
 		service = TestBed.get(TmdbService);
-		get.and.returnValues(showData(), movieData());
 	});
 
 	function showData() {
@@ -90,9 +92,9 @@ describe('TmdbService', () => {
 	it('searches for shows and movies', () => {
 		service.search('something').subscribe();
 		expect(get).toHaveBeenCalled();
-		expect(get.calls.count()).toEqual(2);
-		const firstGetArgs = get.calls.argsFor(0);
-		const secondGetArgs = get.calls.argsFor(1);
+		expect(get.mock.calls.length).toEqual(2);
+		const firstGetArgs = get.mock.calls[0];
+		const secondGetArgs = get.mock.calls[1];
 		expect(firstGetArgs[0]).toEqual('http://api.themoviedb.org/3/search/tv');
 		expect(firstGetArgs[1].params.toString()).toEqual('api_key=f647d297016fdbf28f67b9ebe0dbdd93&query=something');
 		expect(secondGetArgs[0]).toEqual('http://api.themoviedb.org/3/search/movie');

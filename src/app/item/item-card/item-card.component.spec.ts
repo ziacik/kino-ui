@@ -12,7 +12,7 @@ describe('ItemCardComponent', () => {
 	let itemService: ItemService;
 
 	beforeEach(async(() => {
-		itemService = jasmine.createSpyObj('ItemService', ['add']);
+		itemService = { add: jest.fn() } as any;
 		TestBed.configureTestingModule({
 			imports: [ItemModule],
 			providers: [{ provide: ItemService, useValue: itemService }]

@@ -33,8 +33,12 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy() {
-		this.searchSubscription.unsubscribe();
-		this.routerSubscription.unsubscribe();
+		if (this.searchSubscription) {
+			this.searchSubscription.unsubscribe();
+		}
+		if (this.routerSubscription) {
+			this.routerSubscription.unsubscribe();
+		}
 	}
 
 	clear() {

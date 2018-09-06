@@ -15,8 +15,7 @@ describe('SearchBarComponent', () => {
 
 	beforeEach(async(() => {
 		routerEvents = new Subject<ActivationEnd>();
-		router = jasmine.createSpyObj('Router', ['navigate']);
-		(router as any).events = routerEvents;
+		router = { navigate: jest.fn(), events: routerEvents } as any;
 		TestBed.configureTestingModule({
 			imports: [ItemModule],
 			declarations: [SearchBarComponent],

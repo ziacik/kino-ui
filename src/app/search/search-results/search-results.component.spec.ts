@@ -17,13 +17,13 @@ describe('SearchResultsComponent', () => {
 
 	beforeEach(async(() => {
 		const activateRoute = {
-			params: of({ query: 'some query'})
+			params: of({ query: 'some query' })
 		};
 
-		results = [{ name: 'one'} as Item];
+		results = [{ name: 'one' } as Item];
 
-		searchService = jasmine.createSpyObj('SearchService', ['search']);
-		(searchService.search as jasmine.Spy).and.returnValue(of(results));
+		const search = jest.fn().mockReturnValue(of(results));
+		searchService = { search: search } as any;
 
 		TestBed.configureTestingModule({
 			imports: [ItemModule],
