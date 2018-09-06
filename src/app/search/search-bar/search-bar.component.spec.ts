@@ -4,9 +4,8 @@ import { By } from '@angular/platform-browser';
 import { ItemModule } from '../../item/item.module';
 import { SearchBarComponent } from './search-bar.component';
 
-import { Router, ActivatedRouteSnapshot, Params, ActivationEnd } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Router, ActivatedRouteSnapshot, ActivationEnd } from '@angular/router';
+import { Subject } from 'rxjs';
 
 describe('SearchBarComponent', () => {
 	let component: SearchBarComponent;

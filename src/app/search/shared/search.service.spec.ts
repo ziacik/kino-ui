@@ -1,10 +1,9 @@
-import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
+import { fakeAsync, tick } from '@angular/core/testing';
+import { of } from 'rxjs';
 
 import { DiscoveryService } from './discovery.service';
 import { SearchService } from './search.service';
 import { Item } from '../../item/item';
-import { of } from 'rxjs/observable/of';
 
 describe('SearchService', () => {
 	let service: SearchService;

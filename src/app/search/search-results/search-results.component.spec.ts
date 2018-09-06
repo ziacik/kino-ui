@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs';
 
 import { ItemModule } from '../../item/item.module';
 import { SearchResultsComponent } from './search-results.component';
@@ -9,10 +9,8 @@ import { Item } from '../../item/item';
 
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../shared/search.service';
-import { of } from 'rxjs/observable/of';
 
 describe('SearchResultsComponent', () => {
-	let component: SearchResultsComponent;
 	let fixture: ComponentFixture<SearchResultsComponent>;
 	let searchService: SearchService;
 	let results: Item[];
@@ -39,7 +37,6 @@ describe('SearchResultsComponent', () => {
 
 	beforeEach(() => {
 		fixture = TestBed.createComponent(SearchResultsComponent);
-		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
 

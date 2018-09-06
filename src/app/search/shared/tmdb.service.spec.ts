@@ -1,11 +1,10 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 import { TmdbService } from './tmdb.service';
-import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs';
 import { fakeAsync } from '@angular/core/testing';
 import { tick } from '@angular/core/testing';
 import { Item } from '../../item/item';
-import { of } from 'rxjs/observable/of';
 
 describe('TmdbService', () => {
 	let httpClient: HttpClient;

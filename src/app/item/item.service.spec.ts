@@ -1,8 +1,8 @@
 import { fakeAsync, tick } from '@angular/core/testing';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ItemService } from './item.service';
 import { Item } from './item';
-import { of } from 'rxjs/observable/of';
+import { of } from 'rxjs';
 
 describe('ItemService', () => {
 	let service: ItemService;
